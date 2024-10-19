@@ -1,0 +1,180 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-image: url('background.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    background-attachment: fixed; /* Keep background fixed */
+}
+
+/* Ensuring the background doesn't resize */
+html, body {
+    height: 100%;
+}
+
+body:before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    z-index: -1;
+    background: url('background.jpg') no-repeat center center/cover;
+    background-attachment: fixed; /* Keep background fixed even when spinning */
+}
+
+.container {
+    text-align: center;
+    padding: 10px;
+}
+
+/* Making the heading responsive and prevent cut-offs */
+h1 {
+    font-family: 'Lobster', cursive;
+    color: #00ffff;
+    font-size: 5vw; /* Scale text dynamically */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    position:relative;
+    top: 7vh; /* Increase space above to move h1 lower */
+    margin-bottom: 2vh; /* Ensure enough space below */
+    padding: 1vh 4; /* Add space above and below text */
+    max-width: 100%; /* Prevent horizontal overflow */
+    word-wrap: break-word;
+}
+
+/* Adjusting wheel container size */
+.wheel-container {
+    position: relative;
+    width: 80vw;
+    max-width: 900px;
+    height: auto;
+    margin: 0 auto;
+}
+
+/* Spinning wheel */
+#wheel {
+    width: 100%;
+    transition: transform 5s cubic-bezier(0.33, 1, 0.68, 1);
+}
+
+/* Stick the arrow closer to the wheel */
+#arrow {
+    position: absolute;
+    top: 0%;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1;
+    width: 20vw; /* Keep arrow size relative */
+    max-width: 300px; /* Limit arrow size on larger screens */
+    margin-bottom: -5;
+}
+
+/* Button styling */
+button {
+    background-color: #ffcc00;
+    color: #333;
+    border: none;
+    padding: 2vw 5vw;
+    font-size: 2vw;
+    font-weight: bold;
+    border-radius: 50px;
+    cursor: pointer;
+    position: relative;
+    top: -2vw;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.2s ease-in-out, background-color 0.3s;
+}
+
+button:hover {
+    background-color: #ff9900;
+    transform: scale(1.1);
+}
+
+#result-message {
+    font-family: 'Arial', sans-serif;
+    color: #ffffff;
+    background-color: rgba(0, 0, 0, 0.7);
+    font-size: 2vw;
+    padding: 1.5vw;
+    border-radius: 10px;
+    display: none;
+    margin-top: 2vw;
+    max-width: 80%;
+    margin: 20px auto;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    word-wrap: break-word; /* Prevents long text from overflowing */
+}
+
+/* Confetti canvas */
+#confetti-canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 10;
+}
+
+/* Media queries for smaller screens */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 8vw; /* Scale text dynamically */
+    }
+
+    .wheel-container {
+        width: 85vw;
+    }
+
+    #arrow {
+        width: 12vw;
+        top: -6%;
+    }
+
+    button {
+        font-size: 4vw;
+        padding: 3vw 6vw;
+    }
+
+    #result-message {
+        font-size: 4vw;
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 10vw; /* Scale text dynamically */
+        padding: 2vh 0;
+    }
+
+    .wheel-container {
+        width: 95vw;
+    }
+
+    #arrow {
+        width: 30vw;
+        top: 2%;
+    }
+
+    button {
+        font-size: 5vw;
+        padding: 4vw 7vw;
+    }
+
+    #result-message {
+        font-size: 5vw;
+    }
+}
