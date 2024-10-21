@@ -16,7 +16,7 @@ spinButton.addEventListener("click", () => {
     // Wait 5 seconds (duration of the spin) to show the result
     setTimeout(() => {
         // Display the custom winning message
-        resultMessage.textContent = `Felicitări, de ziua ta ai câștigat donatzziiii!`;
+        resultMessage.textContent = `La mulți ani, Andreas! 🎉Ești nu doar cel mai bun prieten, ci și un streamer de excepție! Fie ca fiecare zi să fie o victorie, atât în jocuri, cât și în viață. Mulțumesc că ești mereu alături de mine.Să ai parte de un an epic, plin de bucurii și succes! 🏆!`;
         resultMessage.style.display = 'block'; // Show the message
 
         // Reactivate the spin button
